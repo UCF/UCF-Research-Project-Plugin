@@ -13,7 +13,7 @@ class Research {
 		/**
 		 * @var string The lowercase variant of $singular
 		 */
-		$singuarl_lower,
+		$singular_lower,
 		/**
 		 * @var string The plural label for the post type
 		 */
@@ -39,8 +39,6 @@ class Research {
 
 		// Register the post type on init
 		add_action( 'init', array( $this, 'register' ), 10, 0 );
-		// Append post meta to post results
-		add_action( 'posts_results', array( $this, 'meta' ), 10, 2 );
 	}
 
 	/**
@@ -164,56 +162,6 @@ class Research {
 			'ucf_research_taxonomies',
 			array()
 		);
-	}
-
-	/**
-	 * Appends the post meta to the `meta`
-	 * field on each post.
-	 * @author Jim Barnes
-	 * @since 1.0.0
-	 * @param WP_Post[] $posts The post array
-	 * @param WP_Query $query The query object. Added for convenience
-	 * @return WP_Post[] The post array
-	 */
-	public function meta( $posts, $query ) {
-		// We only append meta when the post type requested is specifically
-		// `research`.
-		if ( $query->get( 'post_type' ) === 'research' ) {
-			foreach( $posts as $post ) {
-				$post = $this->append_post_meta( $post );
-			}
-		}
-
-		return $posts;
-	}
-
-	/**
-	 * Appends the post meta to the `meta`
-	 * field on a WP_Post object
-	 * @author Jim Barnes
-	 * @since 1.0.0
-	 * @param WP_Post $post A single WP_Post object
-	 * @return WP_Post The post object
-	 */
-	private function append_post_meta( $post ) {
-		$meta = array();
-		$post_meta = get_post_meta( $post->ID );
-
-		if ( is_array( $post_meta ) && count( $post_meta ) > 0 ) {
-			foreach( $post_meta as $key => $val ) {
-				if ( is_array( $val ) && count( $val ) === 1 ) {
-					$meta[$key] = $val[0];
-				} else {
-					$meta[$key] = $val;
-				}
-			}
-		}
-
-		$meta = apply_filters( 'ucf_research_append_post_meta', $meta, $post->ID );
-
-		$post->meta = $meta;
-
-		return $post;
 	}
 }
 
