@@ -2,9 +2,9 @@
 /**
  * Defines the Research custom post type
  */
-namespace UCFResearch\PostTypes;
+namespace UCFResearchProject\PostTypes;
 
-class Research {
+class ResearchProject {
 	private
 		/**
 		 * @var string The singular label for the post type
@@ -48,12 +48,12 @@ class Research {
 	 */
 	private function set_labels() {
 		$defaults = array(
-			'singular'    => 'Research Area',
-			'plural'      => 'Research Areas',
-			'text_domain' => 'ucf_research'
+			'singular'    => 'Research Project',
+			'plural'      => 'Research Projects',
+			'text_domain' => 'ucf_research_project'
 		);
 
-		$labels = apply_filters( 'ucf_research_label_defaults', $defaults );
+		$labels = apply_filters( 'ucf_research_project_label_defaults', $defaults );
 
 		$this->singular       = $labels['singular'];
 		$this->singular_lower = strtolower( $this->singular );
@@ -68,7 +68,7 @@ class Research {
 	 * @since 1.0.0
 	 */
 	public function register() {
-		register_post_type( 'research', $this->args() );
+		register_post_type( 'research_projects', $this->args() );
 	}
 
 	/**
@@ -107,7 +107,7 @@ class Research {
 			"filter_items_list"     => __( "Filter $this->plural_lower list", $this->text_domain ),
 		);
 
-		$retval = apply_filters( 'ucf_research_labels', $retval );
+		$retval = apply_filters( 'ucf_research_project_labels', $retval );
 
 		return $retval;
 	}
@@ -145,7 +145,7 @@ class Research {
 			'capability_type'     => 'post'
 		);
 
-		$args = apply_filters( 'ucf_research_args', $args );
+		$args = apply_filters( 'ucf_research_project_args', $args );
 
 		return $args;
 	}
@@ -159,7 +159,7 @@ class Research {
 	 */
 	public function taxonomies() {
 		return apply_filters(
-			'ucf_research_taxonomies',
+			'ucf_research_project_taxonomies',
 			array()
 		);
 	}
