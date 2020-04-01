@@ -9,7 +9,7 @@ GitHub Plugin URI: UCF/UCF-Research-Project-Plugin
 */
 
 namespace UCFResearch;
-use UCFResearchProject\PostTypes\Research;
+use UCFResearchProject\PostTypes\ResearchProject;
 
 if ( ! defined( 'WPINC' ) ) {
     die;
