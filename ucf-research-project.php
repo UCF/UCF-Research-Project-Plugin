@@ -8,7 +8,7 @@ License: GPL3
 GitHub Plugin URI: UCF/UCF-Research-Project-Plugin
 */
 
-namespace UCFResearch;
+namespace UCFResearchProject;
 use UCFResearchProject\PostTypes\ResearchProject;
 
 if ( ! defined( 'WPINC' ) ) {
