@@ -165,4 +165,4 @@ class ResearchProject {
 	}
 }
 
-new Research();
+new ResearchProject();
