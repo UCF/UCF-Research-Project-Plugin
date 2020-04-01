@@ -68,7 +68,7 @@ class ResearchProject {
 	 * @since 1.0.0
 	 */
 	public function register() {
-		register_post_type( 'research_projects', $this->args() );
+		register_post_type( 'research_project', $this->args() );
 	}
 
 	/**
