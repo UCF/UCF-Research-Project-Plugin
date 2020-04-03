@@ -39,6 +39,7 @@ class ResearchProject {
 
 		// Register the post type on init
 		add_action( 'init', array( $this, 'register' ), 10, 0 );
+		add_action( 'init', array( $this, 'register_fields' ), 10, 0 );
 	}
 
 	/**
@@ -162,6 +163,77 @@ class ResearchProject {
 			'ucf_research_project_taxonomies',
 			array()
 		);
+	}
+
+	/**
+	 * Register the ACF fields
+	 * @author Jim Barnes
+	 * @since 1.0.0
+	 */
+	public function register_fields() {
+		if ( ! function_exists('acf_add_local_field_group') ) return;
+
+		// Set the $fields array
+		$fields = array();
+
+		$fields[] = array(
+			'key'               => 'rp_principle_investigator',
+			'label'             => 'Principle Investigator',
+			'name'              => 'rp_principle_investigator',
+			'type'              => 'post_object',
+			'instructions'      => 'Select the principle investigator',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'post_type'         => array(
+				0 => 'person',
+			),
+			'taxonomy'          => '',
+			'allow_null'        => 0,
+			'multiple'          => 0,
+			'return_format'     => 'object',
+			'ui'                => 1,
+		);
+
+		$fields[] = array(
+			'key'           => 'rp_coprinciple_investigators',
+			'label'         => 'Co-Principle Investigators',
+			'name'          => 'rp_coprinciple_investigators',
+			'type'          => 'relationship',
+			'instructions'  => 'Choose any co-principle investigators.',
+			'required'      => 0,
+			'post_type'     => array(
+				0 => 'person',
+			),
+			'taxonomy'      => '',
+			'filters'       => array(
+				0 => 'search',
+			),
+			'min'           => '',
+			'max'           => '',
+			'return_format' => 'object',
+		);
+
+		$fields = apply_filters( 'research_publication_fields', $fields );
+
+		// Setup the args
+		$args = array(
+			'key'      => 'group_5e85fb2c98833',
+			'title'    => 'Research Project Fields',
+			'fields'   => $fields,
+			'location' => array(
+				array(
+					array(
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'research_project',
+					)
+				)
+			)
+		);
+
+		$args = apply_filters( 'research_publication_field_args', $args );
+
+		acf_add_local_field_group( $args );
 	}
 }
 
