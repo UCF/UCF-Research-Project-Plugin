@@ -177,11 +177,11 @@ class ResearchProject {
 		$fields = array();
 
 		$fields[] = array(
-			'key'               => 'rp_principle_investigator',
-			'label'             => 'Principle Investigator',
-			'name'              => 'rp_principle_investigator',
+			'key'               => 'rp_principal_investigator',
+			'label'             => 'Principal Investigator',
+			'name'              => 'rp_principal_investigator',
 			'type'              => 'post_object',
-			'instructions'      => 'Select the principle investigator',
+			'instructions'      => 'Select the principal investigator',
 			'required'          => 0,
 			'conditional_logic' => 0,
 			'post_type'         => array(
@@ -195,11 +195,11 @@ class ResearchProject {
 		);
 
 		$fields[] = array(
-			'key'           => 'rp_coprinciple_investigators',
-			'label'         => 'Co-Principle Investigators',
-			'name'          => 'rp_coprinciple_investigators',
+			'key'           => 'rp_coprincipal_investigators',
+			'label'         => 'Co-Principal Investigators',
+			'name'          => 'rp_coprincipal_investigators',
 			'type'          => 'relationship',
-			'instructions'  => 'Choose any co-principle investigators.',
+			'instructions'  => 'Choose any co-principal investigators.',
 			'required'      => 0,
 			'post_type'     => array(
 				0 => 'person',
