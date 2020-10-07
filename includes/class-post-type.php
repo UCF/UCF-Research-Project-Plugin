@@ -143,7 +143,8 @@ class ResearchProject {
 			'has_archive'         => false,
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
-			'capability_type'     => 'post'
+			'capability_type'     => 'post',
+			'rewrite'             => array( 'slug' => 'research-project' )
 		);
 
 		$args = apply_filters( 'ucf_research_project_args', $args );
