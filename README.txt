@@ -1,8 +1,8 @@
 === UCF Research Project Plugin ===
 Contributors: ucfwebcom
 Requires at least: 4.9.7
-Tested up to: 5.2.5
-Stable tag: 1.0.0
+Tested up to: 6.1
+Stable tag: 1.0.1
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/copyleft/gpl-3.0.html
@@ -21,6 +21,10 @@ Head over to the [UCF Research Project Plugin wiki](https://github.com/UCF/UCF-R
 
 
 == Changelog ==
+
+= 1.0.1 =
+Enhancements:
+* Added composer file.
 
 = 1.0.0 =
 * Initial release

@@ -15,6 +15,10 @@ Head over to the [UCF Research Project Plugin wiki](https://github.com/UCF/UCF-R
 
 ## Changelog ##
 
+### 1.0.1 ###
+Enhancements:
+* Added composer file.
+
 ### 1.0.0 ###
 * Initial release
 

@@ -1,0 +1,8 @@
+{
+    "name": "ucf/ucf-research-project-plugin",
+    "description": "The UCF Research Project Plugin provides a custom post type and fields to describe areas of research being conducted at UCF.",
+    "type": "wordpress-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

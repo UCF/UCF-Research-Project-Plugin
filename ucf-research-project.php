@@ -2,7 +2,7 @@
 /*
 Plugin Name: UCF Research Project Plugin
 Description: The UCF Research Project Plugin provides a custom post type and fields to describe areas of research being conducted at UCF.
-Version: 1.0.0
+Version: 1.0.1
 Author: UCF Web Communications
 License: GPL3
 GitHub Plugin URI: UCF/UCF-Research-Project-Plugin
